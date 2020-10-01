@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * @author Rayane Berrada
  */
-public class FileManager {
+public class DataManager {
 	private ISymptomReader symptomsReader;
 	private Analytics datasAnalyzer;
 	private ISymptomWriter symptomsWriter;
@@ -28,7 +28,7 @@ public class FileManager {
 	 * @param writingClass will initialize the variable symptomsWriter with an instance of an implementation of {@link ISymptomWriter}.
 	 * symptomsWriter will be used by FileManager to write the analyzed data in a file store at the root of the project. 
 	 */
-	public FileManager(ISymptomReader readingClass,Analytics anazlyzingClass, ISymptomWriter writingClass) {
+	public DataManager(ISymptomReader readingClass,Analytics anazlyzingClass, ISymptomWriter writingClass) {
 		this.symptomsReader = readingClass;
 		this.datasAnalyzer = anazlyzingClass;
 		this.symptomsWriter = writingClass;
@@ -40,7 +40,7 @@ public class FileManager {
 	 * 
 	 * @param path is a String of the path to the file we want to extract the symptoms from
 	 */
-	public void readFile(String[] origin) {
+	public void readData(String[] origin) {
 		this.symptomsReader.setDataOrigin(origin);
 		this.readSymptoms = this.symptomsReader.getSymptoms();
 	}
@@ -49,7 +49,7 @@ public class FileManager {
 	 * This method analyze the data using the method analyze defined in datasAnalyzer and initialize the variable analyzedSymptoms
 	 * with the values returned by the object datasAnalyzer.
 	 */
-	public void analyzeDatas() {
+	public void analyzeData() {
 		if ( this.readSymptoms != null) {
 			this.datasAnalyzer.analyze(this.readSymptoms);
 			this.analyzedSymptoms = this.datasAnalyzer.getAnalyzedSymptoms();
@@ -61,7 +61,7 @@ public class FileManager {
 	/**
 	 * Create a new file at the root of the project containing the informations stored in the variable anazlyzedSymptoms
 	 */
-	public void writeDatasInFile(String[] destination) {
+	public void writeData(String[] destination) {
 		if ( this.analyzedSymptoms != null) {
 			this.symptomsWriter.setDataDestination(destination);
 			this.symptomsWriter.writeData(this.analyzedSymptoms);
