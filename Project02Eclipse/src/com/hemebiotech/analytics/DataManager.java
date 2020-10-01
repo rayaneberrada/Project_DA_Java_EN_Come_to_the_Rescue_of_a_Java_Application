@@ -62,6 +62,7 @@ public class DataManager {
 	 * Create a new file at the root of the project containing the informations stored in the variable anazlyzedSymptoms
 	 */
 	public void writeData(String[] destination) {
+
 		if ( this.analyzedSymptoms != null) {
 			this.symptomsWriter.setDataDestination(destination);
 			this.symptomsWriter.writeData(this.analyzedSymptoms);
