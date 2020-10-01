@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * @author Rayane Berrada
  */
-public class FileManager {
+public class DataManager {
 	private ISymptomReader symptomsReader;
 	private Analytics datasAnalyzer;
 	private ISymptomWriter symptomsWriter;
@@ -28,7 +28,7 @@ public class FileManager {
 	 * @param writingClass will initialize the variable symptomsWriter with an instance of an implementation of {@link ISymptomWriter}.
 	 * symptomsWriter will be used by FileManager to write the analyzed data in a file store at the root of the project. 
 	 */
-	public FileManager(ISymptomReader readingClass,Analytics anazlyzingClass, ISymptomWriter writingClass) {
+	public DataManager(ISymptomReader readingClass,Analytics anazlyzingClass, ISymptomWriter writingClass) {
 		this.symptomsReader = readingClass;
 		this.datasAnalyzer = anazlyzingClass;
 		this.symptomsWriter = writingClass;
