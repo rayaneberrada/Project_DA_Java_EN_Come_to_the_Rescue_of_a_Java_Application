@@ -12,9 +12,12 @@ import java.util.List;
  */
 public interface ISymptomReader {
 	/**
-	 * Method used to set the path of the file that the implementation will read.
+	 * Method used to set the origin of the data read
+	 * 
+	 * @param origin could be one or multiple paths, database connection informations or anything else creating
+	 * a link between the implementation of this interface and a data source
 	 */
-	public void setFilePath(String path);
+	public void setDataOrigin(String[] origin);
 	/**
 	 * If no data is available, return an empty List
 	 * 

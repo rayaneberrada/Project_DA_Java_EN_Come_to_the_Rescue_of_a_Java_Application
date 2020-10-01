@@ -3,14 +3,14 @@ package com.hemebiotech.analytics;
 public class MainClass {
 
 	public static void main(String[] args) {
-		ISymptomReader symptomsReader = new ReadSymptomDataFromFile();
+		ISymptomReader symptomsReader = new ReadSymptomDataFromOneFile();
 		Analytics analyticsCounter = new AnalyticsCounter();
-		ISymptomWriter symptomsWriter = new WriteMapSymtomDataInFile();
+		ISymptomWriter symptomsWriter = new WriteMapSymptomDataInOneFile();
 		FileManager fileManager = new FileManager(symptomsReader, analyticsCounter, symptomsWriter);
 		
-		fileManager.readFile("Project02Eclipse\\symptoms.txt");
+		fileManager.readFile(new String[]{"Project02Eclipse\\symptoms.txt"});
 		fileManager.analyzeDatas();
-		fileManager.writeDatasInFile();
+		fileManager.writeDatasInFile(new String[]{"Project02Eclipse\\results.out"});
 	}
 
 }
