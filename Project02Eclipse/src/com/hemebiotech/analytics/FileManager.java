@@ -40,8 +40,8 @@ public class FileManager {
 	 * 
 	 * @param path is a String of the path to the file we want to extract the symptoms from
 	 */
-	public void readFile(String path) {
-		this.symptomsReader.setFilePath(path);
+	public void readFile(String[] origin) {
+		this.symptomsReader.setDataOrigin(origin);
 		this.readSymptoms = this.symptomsReader.getSymptoms();
 	}
 	
@@ -61,9 +61,10 @@ public class FileManager {
 	/**
 	 * Create a new file at the root of the project containing the informations stored in the variable anazlyzedSymptoms
 	 */
-	public void writeDatasInFile() {
+	public void writeDatasInFile(String[] destination) {
 		if ( this.analyzedSymptoms != null) {
-			this.symptomsWriter.createFile(this.analyzedSymptoms);
+			this.symptomsWriter.setDataDestination(destination);
+			this.symptomsWriter.writeData(this.analyzedSymptoms);
 		} else {
 			System.out.println("analyzedSymptoms list empty. You need to use the analyzeDatas method before creating the file");
 		}
