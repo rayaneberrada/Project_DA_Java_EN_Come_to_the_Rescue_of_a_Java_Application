@@ -40,7 +40,7 @@ public class DataManager {
 	 * 
 	 * @param path is a String of the path to the file we want to extract the symptoms from
 	 */
-	public void readFile(String[] origin) {
+	public void readData(String[] origin) {
 		this.symptomsReader.setDataOrigin(origin);
 		this.readSymptoms = this.symptomsReader.getSymptoms();
 	}
@@ -49,7 +49,7 @@ public class DataManager {
 	 * This method analyze the data using the method analyze defined in datasAnalyzer and initialize the variable analyzedSymptoms
 	 * with the values returned by the object datasAnalyzer.
 	 */
-	public void analyzeDatas() {
+	public void analyzeData() {
 		if ( this.readSymptoms != null) {
 			this.datasAnalyzer.analyze(this.readSymptoms);
 			this.analyzedSymptoms = this.datasAnalyzer.getAnalyzedSymptoms();
@@ -61,7 +61,8 @@ public class DataManager {
 	/**
 	 * Create a new file at the root of the project containing the informations stored in the variable anazlyzedSymptoms
 	 */
-	public void writeDatasInFile(String[] destination) {
+	public void writeData(String[] destination) {
+
 		if ( this.analyzedSymptoms != null) {
 			this.symptomsWriter.setDataDestination(destination);
 			this.symptomsWriter.writeData(this.analyzedSymptoms);
