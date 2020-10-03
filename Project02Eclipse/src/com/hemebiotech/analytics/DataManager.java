@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class DataManager {
 	private ISymptomReader symptomsReader;
-	private Analytics datasAnalyzer;
+	private IAnalytics datasAnalyzer;
 	private ISymptomWriter symptomsWriter;
 	
 	/** readSymptoms is a list containing the symptoms read from a file */
@@ -28,7 +28,7 @@ public class DataManager {
 	 * @param writingClass will initialize the variable symptomsWriter with an instance of an implementation of {@link ISymptomWriter}.
 	 * symptomsWriter will be used by FileManager to write the analyzed data in a file store at the root of the project. 
 	 */
-	public DataManager(ISymptomReader readingClass,Analytics anazlyzingClass, ISymptomWriter writingClass) {
+	public DataManager(ISymptomReader readingClass,IAnalytics anazlyzingClass, ISymptomWriter writingClass) {
 		this.symptomsReader = readingClass;
 		this.datasAnalyzer = anazlyzingClass;
 		this.symptomsWriter = writingClass;

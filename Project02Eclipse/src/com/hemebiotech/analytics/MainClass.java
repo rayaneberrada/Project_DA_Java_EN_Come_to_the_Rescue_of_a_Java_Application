@@ -4,13 +4,13 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		ISymptomReader symptomsReader = new ReadSymptomDataFromOneFile();
-		Analytics analyticsCounter = new AnalyticsCounter();
+		IAnalytics analyticsCounter = new AnalyticsCounter();
 		ISymptomWriter symptomsWriter = new WriteMapSymptomDataInOneFile();
 		DataManager fileManager = new DataManager(symptomsReader, analyticsCounter, symptomsWriter);
 		
-		fileManager.readFile(new String[]{"Project02Eclipse\\symptoms.txt"});
-		fileManager.analyzeDatas();
-		fileManager.writeDatasInFile(new String[]{"Project02Eclipse\\results.out"});
+		fileManager.readData(new String[]{"Project02Eclipse\\symptoms.txt"});
+		fileManager.analyzeData();
+		fileManager.writeData(new String[]{"Project02Eclipse\\results.out"});
 	}
 
 }
