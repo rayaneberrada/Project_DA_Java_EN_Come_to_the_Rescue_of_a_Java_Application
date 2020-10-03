@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class AnalyticsCounter implements Analytics{
+public class AnalyticsCounter implements IAnalytics{
 	
 	/** use a TreeMap to have the keys ordered by their lexicographic value. 
 	 * This variable contain a dictionary of symptoms(key) associated to the amount of occurrence(value) found

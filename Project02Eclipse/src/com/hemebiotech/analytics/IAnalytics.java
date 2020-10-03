@@ -11,7 +11,7 @@ import java.util.Map;
  * the analyzed data
  *
  */
-public interface Analytics {
+public interface IAnalytics {
 
 	/**
 	 * This method is supposed to analyze and treat the data depending
